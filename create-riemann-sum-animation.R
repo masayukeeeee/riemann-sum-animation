@@ -61,7 +61,7 @@ p <- ggplot(f_line, aes(x=x, y=y), color="blue") +
 
 #---------------------------------------------------------
 # create animation by gganimate
-anim <- p + transition_states(n)
+anim <- p + transition_states(n, wrap=FALSE)
 
 #---------------------------------------------------------
 # save this animation as gif at current directory
