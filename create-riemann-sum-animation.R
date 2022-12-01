@@ -68,6 +68,9 @@ anim <- p + transition_states(n)
 output <- animate(anim, nframes=length(ns), duration=duration)
 anim_save("riemann_sum_animation.gif", output)
 
+# example: failed setting
+# output <- animate(anim, nframes=100, duration=10)
+# anim_save("riemann_sum_animation_failed.gif", output)
 #---------------------------------------------------------
 # print success message
 msg <- sprintf("[Success!] gif file was saved in %s", getwd())
