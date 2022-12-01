@@ -11,7 +11,7 @@ f <- function(x) x^3 - 2*x + 3
 x <- seq(a, b, 0.01)
 
 # N, where move n to lim_{n -> N}
-split_ns <- seq(10, 310, 10)
+split_ns <- seq(10, 300, 10)
 
 # movie setting
 duration <- 5
