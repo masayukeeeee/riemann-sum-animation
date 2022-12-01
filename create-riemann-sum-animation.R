@@ -20,9 +20,9 @@ duration <- 5
 # bottom left -> top left -> top right -> bottom right
 # (xi, 0) -> (xi, f(xi+1)) -> (xi+1, f(xi+1)) -> (xi+1, 0)
 
-if(exists("rieman_splits")){
-  rm(rieman_splits)
-  print("removed 'rieman_splits'")
+if(exists("riemann_splits")){
+  rm(riemann_splits)
+  print("removed 'riemann_splits'")
 }
 
 for(split_n in split_ns){
@@ -36,10 +36,10 @@ for(split_n in split_ns){
   ys <- ps %>% select(y1, y2, y3, y4) %>% as.matrix() %>% t() %>% as.vector()
   ps_longer <- data.frame(x=xs, y=ys) %>% as_tibble() %>% mutate(n = split_n)
   
-  if(!exists("rieman_splits")){
-    rieman_splits <- ps_longer
+  if(!exists("riemann_splits")){
+    riemann_splits <- ps_longer
   }else{
-    rieman_splits <- bind_rows(rieman_splits, ps_longer)
+    riemann_splits <- bind_rows(riemann_splits, ps_longer)
   }
 }
 #---------------------------------------------------------
@@ -52,7 +52,7 @@ f_line <- data.frame(
 #---------------------------------------------------------
 # create ggplot
 p <- ggplot(f_line, aes(x=x, y=y), color="blue") +
-  geom_line(inherit.aes=F, data=rieman_splits, 
+  geom_line(inherit.aes=F, data=riemann_splits, 
             aes(x=x, y=y)) +
   geom_ribbon(aes(ymin=0, ymax=y), fill="skyblue", alpha=0.4) +
   geom_line() +
@@ -66,7 +66,7 @@ anim <- p + transition_states(n)
 #---------------------------------------------------------
 # save this animation as gif at current directory
 output <- animate(anim, nframes=length(ns), duration=duration)
-anim_save("rieman_sum_animation.gif", output)
+anim_save("riemann_sum_animation.gif", output)
 
 #---------------------------------------------------------
 # print success message
