@@ -1,4 +1,4 @@
-# riemann-sum-animation
+# Riemann-sum-animation
 リーマン和の分割数を大きくしていった時の様子を可視化するgifアニメーションを作成する
 
 ![output](riemann_sum_animation.gif)
